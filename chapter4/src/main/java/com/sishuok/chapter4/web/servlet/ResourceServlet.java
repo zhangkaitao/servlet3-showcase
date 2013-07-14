@@ -41,5 +41,9 @@ public class ResourceServlet extends HttpServlet {
         //webapp下的
         System.out.println(sc.getResource("/com/sishuok/t4.txt"));
 
+        //另外
+        //可以直接使用如 http://localhost:9080/chapter4/jsp/hello.jsp 访问jar!/META-INF/resources下的资源
+        //http://localhost:9080/chapter4/static/css/style.css
+
     }
 }
