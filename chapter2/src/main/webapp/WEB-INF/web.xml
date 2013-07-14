@@ -8,4 +8,6 @@
         metadata-complete="false"
         >
 
+    <!-- 此配置文件可选，删除即零XML -->
+
 </web-app>
