@@ -10,8 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>chapter2</artifactId>
     <packaging>war</packaging>
-    <name>chapter2 Maven Webapp</name>
-    <url>http://maven.apache.org</url>
 
     <dependencies>
         <dependency>
@@ -38,22 +36,5 @@
 
     <build>
         <finalName>chapter2</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>8.1.8.v20121106</version>
-                <configuration>
-                    <webAppConfig>
-                        <contextPath>/${project.build.finalName}</contextPath>
-                    </webAppConfig>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>9080</port>
-                        </connector>
-                    </connectors>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 </project>

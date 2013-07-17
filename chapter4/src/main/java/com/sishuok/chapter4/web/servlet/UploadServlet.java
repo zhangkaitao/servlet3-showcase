@@ -36,7 +36,10 @@ public class UploadServlet extends HttpServlet {
     protected void doPost(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
 
         try {
-            System.out.println(req.getParameter("name")); //如果servlet容器还没有处理Part部分，那么返回null
+
+            //如果servlet容器还没有处理Part部分，那么返回null
+            //9.0.4.v20130625 已经修复了这个问题
+            System.out.println(req.getParameter("name"));
 
             //获取Part部分
             System.out.println("\n\n==========file1");

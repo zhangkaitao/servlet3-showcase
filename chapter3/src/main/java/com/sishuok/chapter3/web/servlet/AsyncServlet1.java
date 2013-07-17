@@ -24,7 +24,6 @@ public class AsyncServlet1 extends HttpServlet {
     @Override
     protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
         resp.setHeader("Connection", "Keep-Alive");
-        resp.setHeader("Proxy-Connection", "Keep-Alive");
         resp.setContentType("text/html;charset=utf-8");
 
         PrintWriter out = resp.getWriter();

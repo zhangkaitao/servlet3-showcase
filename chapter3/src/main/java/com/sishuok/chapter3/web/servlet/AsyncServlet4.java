@@ -18,16 +18,14 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * comet
- * iframe streaming
- *
- * 无法解决chrome loading的问题
+ * long polling
  *
  * <p>User: Zhang Kaitao
  * <p>Date: 13-6-22 下午10:02
  * <p>Version: 1.0
  */
-@WebServlet(name = "asyncServlet3", urlPatterns = "/async3", asyncSupported = true)
-public class AsyncServlet3 extends HttpServlet {
+@WebServlet(name = "asyncServlet4", urlPatterns = "/async4", asyncSupported = true)
+public class AsyncServlet4 extends HttpServlet {
 
     private final Queue<AsyncContext> queue = new ConcurrentLinkedQueue();
 
@@ -39,7 +37,7 @@ public class AsyncServlet3 extends HttpServlet {
                 while (true) {
                     //一秒执行一次
                     try {
-                        Thread.sleep(5 * 1000L);
+                        Thread.sleep(10 * 1000L);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -53,19 +51,17 @@ public class AsyncServlet3 extends HttpServlet {
                             ServletResponse response = asyncContext.getResponse();
                             PrintWriter out = response.getWriter();
                             String msg = "new message : " + System.currentTimeMillis();
-                            out.write("<script>parent.callback('" + msg + "');</script>");
+                            out.write(msg);
                             try {
                                 response.flushBuffer();
                             } catch (IOException e) {
-                                //远程主机可能强制关闭一个链接 直接把连接移除
-                                iter.remove();
-                                asyncContext.complete();
+                                //忽略 远程主机可能强制关闭一个链接
                             }
+                            asyncContext.complete();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                    System.out.println("push message count : " + queue.size());
                 }
             }
         }).start();
@@ -82,6 +78,8 @@ public class AsyncServlet3 extends HttpServlet {
 
         //1、开启异步
         final AsyncContext asyncContext = req.startAsync();
+
+        asyncContext.setTimeout(30 * 1000);
 
         asyncContext.addListener(new AsyncListener() {
             @Override
