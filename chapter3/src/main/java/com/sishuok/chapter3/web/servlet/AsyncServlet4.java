@@ -37,7 +37,7 @@ public class AsyncServlet4 extends HttpServlet {
                 while (true) {
                     //一秒执行一次
                     try {
-                        Thread.sleep(10 * 1000L);
+                        Thread.sleep(10L * 1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -79,7 +79,7 @@ public class AsyncServlet4 extends HttpServlet {
         //1、开启异步
         final AsyncContext asyncContext = req.startAsync();
 
-        asyncContext.setTimeout(30 * 1000);
+        asyncContext.setTimeout(30L * 1000);
 
         asyncContext.addListener(new AsyncListener() {
             @Override
@@ -95,7 +95,6 @@ public class AsyncServlet4 extends HttpServlet {
 
             @Override
             public void onError(final AsyncEvent event) throws IOException {
-                event.getAsyncContext().complete();
                 queue.remove(event.getAsyncContext());
             }
 

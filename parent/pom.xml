@@ -32,6 +32,7 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
             <version>9.0.4.v20130625</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

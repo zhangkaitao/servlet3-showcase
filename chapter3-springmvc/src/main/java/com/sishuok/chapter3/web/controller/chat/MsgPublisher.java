@@ -37,7 +37,7 @@ public class MsgPublisher {
 
 
     public DeferredResult<String> startAsync(final String username) {
-        final DeferredResult<String> result = new DeferredResult<String>(30 * 1000L, null);
+        final DeferredResult<String> result = new DeferredResult<String>(30L * 1000, null);
 
         final Runnable removeDeferredResultRunnable = new Runnable() {
             @Override

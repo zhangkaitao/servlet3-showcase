@@ -30,7 +30,7 @@ public class CallableController {
         return new Callable<String>() {
             @Override
             public String call() throws Exception {
-                Thread.sleep(2000L); //暂停两秒
+                Thread.sleep(2L * 1000); //暂停两秒
                 String viewName = "msg";
                 model.addAttribute("msg", "hello callable");
                 return viewName; //然后返回到指定视图页面
@@ -43,7 +43,7 @@ public class CallableController {
         return new Callable<ModelAndView>() {
             @Override
             public ModelAndView call() throws Exception {
-                Thread.sleep(2000L); //暂停两秒
+                Thread.sleep(2L * 1000); //暂停两秒
                 ModelAndView mv = new ModelAndView("msg");
                 mv.addObject("msg", "hello callable");
                 return mv;
@@ -57,7 +57,7 @@ public class CallableController {
         return new Callable<Object>() {
             @Override
             public Object call() throws Exception {
-                Thread.sleep(2000L); //暂停两秒
+                Thread.sleep(2L * 1000); //暂停两秒
                 return new User(1, "zhang");
             }
         };

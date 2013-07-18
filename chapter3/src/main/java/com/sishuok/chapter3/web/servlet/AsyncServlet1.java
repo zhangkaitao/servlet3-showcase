@@ -33,7 +33,7 @@ public class AsyncServlet1 extends HttpServlet {
         //1、开启异步
         final AsyncContext asyncContext = req.startAsync();
         //2、设置超时时间，如果不设置如jetty是30000L
-        asyncContext.setTimeout(10000L);
+        asyncContext.setTimeout(10L * 1000);
         //3、告诉容器分派一个新的线程执行异步任务
         //这种方式的缺点就是可能和请求用同一个线程池，不推荐这种做法；从本质上讲和同步没啥区别（都要占用一个服务器线程）
         //不过如果请求压力较小，可以使用这种方法（因为有超时设置，可以防止一直不响应）
@@ -41,7 +41,7 @@ public class AsyncServlet1 extends HttpServlet {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(3000L);
+                    Thread.sleep(3L * 1000);
                     PrintWriter out = asyncContext.getResponse().getWriter();
                     out.write("over");
                     asyncContext.complete();

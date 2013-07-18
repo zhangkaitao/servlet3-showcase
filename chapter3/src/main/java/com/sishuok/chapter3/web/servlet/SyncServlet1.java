@@ -33,7 +33,7 @@ public class SyncServlet1 extends HttpServlet {
 
         //假设是个耗时任务，此时必须等待
         try {
-            Thread.sleep(2000L);
+            Thread.sleep(2L * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

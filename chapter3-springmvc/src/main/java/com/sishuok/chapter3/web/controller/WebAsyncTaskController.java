@@ -24,11 +24,11 @@ public class WebAsyncTaskController {
 
     @RequestMapping("/webAsyncTask1")
     public WebAsyncTask<String> webAsyncTask1(final Model model) {
-        int timeout = 10 * 1000; //自定义超时时间 10秒
+        long timeout = 10L * 1000; //自定义超时时间 10秒
         WebAsyncTask webAsyncTask = new WebAsyncTask(timeout, new Callable() {
             @Override
             public String call() throws Exception {
-                Thread.sleep(2000);
+                Thread.sleep(2L * 1000);
                 model.addAttribute("msg", "hello web async task");
                 String viewName = "msg";
                 return viewName;
@@ -39,11 +39,11 @@ public class WebAsyncTaskController {
 
     @RequestMapping("/webAsyncTask2")
     public WebAsyncTask<String> webAsyncTask2(final Model model) {
-        long timeout = 10 * 1000; //自定义超时时间 1秒
+        long timeout = 10L * 1000; //自定义超时时间 1秒
         WebAsyncTask webAsyncTask = new WebAsyncTask(timeout, new Callable() {
             @Override
             public String call() throws Exception {
-                Thread.sleep(2000);
+                Thread.sleep(2L * 1000);
                 throw new RuntimeException("出错了");
             }
         });

@@ -38,14 +38,14 @@ public class AsyncServlet2 extends HttpServlet {
         //1、开启异步
         final AsyncContext asyncContext = req.startAsync();
         //2、设置超时时间，如果不设置如jetty是30000L
-        asyncContext.setTimeout(10000L); //设置为0表示永不超时
+        asyncContext.setTimeout(10L * 1000); //设置为0表示永不超时
 
         //把任务提交给自己的任务队列
         executorService.submit(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(3000L);
+                    Thread.sleep(3L * 1000);
                     PrintWriter out = asyncContext.getResponse().getWriter();
                     out.write("over");
                     asyncContext.complete();

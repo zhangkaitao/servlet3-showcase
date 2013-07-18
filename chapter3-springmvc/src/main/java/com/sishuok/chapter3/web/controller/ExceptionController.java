@@ -26,7 +26,7 @@ public class ExceptionController {
         return new Callable<String>() {
             @Override
             public String call() throws Exception {
-                Thread.sleep(2000);
+                Thread.sleep(2L * 1000);
                 throw new RuntimeException("出错了");
             }
         };

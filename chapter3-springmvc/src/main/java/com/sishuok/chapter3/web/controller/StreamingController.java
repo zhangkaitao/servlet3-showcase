@@ -3,11 +3,12 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.sishuok.chapter3.web.servlet;
+package com.sishuok.chapter3.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,17 +18,18 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * comet
  * streaming
  *
- * 无法解决chrome loading的问题
+ * spring mvc没有提供streaming实现，所以此处需要还原到原始做法上
+ *
+ * 如下代码直接复制在chapter3下的com.sishuok.chapter3.web.servlet.AsyncServlet3
  *
  * <p>User: Zhang Kaitao
- * <p>Date: 13-6-22 下午10:02
+ * <p>Date: 13-7-18 下午8:05
  * <p>Version: 1.0
  */
-@WebServlet(name = "asyncServlet3", urlPatterns = "/async3", asyncSupported = true)
-public class AsyncServlet3 extends HttpServlet {
+@Controller
+public class StreamingController {
 
     private final Queue<AsyncContext> queue = new ConcurrentLinkedQueue();
 
@@ -65,15 +67,15 @@ public class AsyncServlet3 extends HttpServlet {
                             e.printStackTrace();
                         }
                     }
-                    System.out.println("push message count : " + queue.size());
+//                    System.out.println("push message count : " + queue.size());
                 }
             }
         }).start();
     }
 
 
-    @Override
-    protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
+    @RequestMapping("/async3")
+    public void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
         resp.setHeader("Connection", "Keep-Alive");
         resp.addHeader("Cache-Control", "private");
         resp.addHeader("Pragma", "no-cache");

@@ -37,7 +37,7 @@ public class DeferredResultController {
     public DeferredResult<String> newMessage() throws IOException {
 
         //1、创建DeferredResult
-        long timeout = 30 * 1000;
+        long timeout = 30L * 1000;
         final DeferredResult<String> result = new DeferredResult<String>(timeout);
 
         result.onCompletion(new Runnable() {
@@ -59,7 +59,7 @@ public class DeferredResultController {
         return result;
     }
 
-    @Scheduled(fixedRate = 5 * 1000)
+    @Scheduled(fixedRate = 5L * 1000)
     public void pushMessage() {
         Iterator<DeferredResult> iter = queue.iterator();
         while (iter.hasNext()) {

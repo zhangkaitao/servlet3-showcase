@@ -44,7 +44,7 @@ public class MsgPublisher {
     public void startAsync(HttpServletRequest req, final String username) {
         //1、开启异步
         final AsyncContext asyncContext = req.startAsync();
-        asyncContext.setTimeout(30 * 1000);
+        asyncContext.setTimeout(30L * 1000);
 
         //将异步上下文加入到队列中，这样在未来可以推送消息
         Queue<AsyncContext> queue = usernameToAsyncContextMap.get(username);
@@ -71,7 +71,10 @@ public class MsgPublisher {
 
             @Override
             public void onError(final AsyncEvent event) throws IOException {
-                event.getAsyncContext().complete();
+                Queue<AsyncContext> queue = usernameToAsyncContextMap.get(username);
+                if(queue != null) {
+                    queue.remove(event.getAsyncContext());
+                }
             }
 
             @Override
