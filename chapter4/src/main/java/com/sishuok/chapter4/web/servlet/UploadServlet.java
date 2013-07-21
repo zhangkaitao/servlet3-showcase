@@ -97,6 +97,7 @@ public class UploadServlet extends HttpServlet {
     }
 
     //没有提供直接获取文件名的API，需要拿到content-disposition再解析
+    //servlet 3.1 直接使用Part.getSubmittedFileName即可拿到客户端的文件名
     private String getFileName(final Part part) {
         if(part == null) {
             return null;

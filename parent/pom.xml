@@ -9,8 +9,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>parent</artifactId>
     <packaging>pom</packaging>
+    <artifactId>parent</artifactId>
 
     <modules>
         <module>../chapter1</module>
@@ -24,6 +24,7 @@
         <module>../chapter3-springmvc</module>
         <module>../chapter4</module>
         <module>../chapter4-resource</module>
+        <module>../chapter4-3_1</module>
     </modules>
 
     <dependencies>
@@ -33,6 +34,12 @@
             <artifactId>jetty-servlet</artifactId>
             <version>9.0.4.v20130625</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>javax.servlet</artifactId>
+                    <groupId>org.eclipse.jetty.orbit</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>

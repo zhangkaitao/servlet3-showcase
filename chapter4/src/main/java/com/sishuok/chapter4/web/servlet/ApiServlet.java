@@ -53,7 +53,8 @@ public class ApiServlet extends HttpServlet {
         //把默认的JSESSIONID--修改为->id   可以观察客户端变成了id
         sessionCookieConfig.setName("id");
 
-
+        //得到请求的session id
+        req.getRequestedSessionId();
 
         /**得到分派的类型 请参考：{@link javax.servlet.DispatcherType}*/
         System.out.println(req.getDispatcherType());
@@ -71,6 +72,9 @@ public class ApiServlet extends HttpServlet {
 //        resp.getHeader();
 //        resp.getHeaderNames();
 //        resp.getHeaders();
+
+
+
 
     }
 }
