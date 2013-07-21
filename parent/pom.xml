@@ -25,6 +25,7 @@
         <module>../chapter4</module>
         <module>../chapter4-resource</module>
         <module>../chapter4-3_1</module>
+        <module>../chapter4-2_5</module>
     </modules>
 
     <dependencies>
