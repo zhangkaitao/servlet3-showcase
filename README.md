@@ -1,5 +1,5 @@
 ##servlet3.x新特性示例：
-* 最近JavaEE 7也发布了，其包含Servlet3.1规范，目前glassfish已经实现了该规范，所以写了一个参考示例方便参考学习。建议学习之前，请先阅读Servlet3规范，效果更佳。
+* 最近JavaEE 7也发布了，其包含Servlet3.1规范，目前glassfish4已经实现了该规范，所以写了一个参考示例方便参考学习。建议学习之前，请先阅读Servlet3规范，效果更佳。
 
 ###1、更加便利的注解支持
 * 提供了@WebServlet、@WebFilter、@WebListener、@WebInitParam等注解的支持
