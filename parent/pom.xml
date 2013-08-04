@@ -25,7 +25,9 @@
         <module>../chapter4</module>
         <module>../chapter4-resource</module>
         <module>../chapter4-3_1</module>
-        <module>../chapter4-2_5</module>
+        <module>../chapter5-pajax</module>
+        <module>../chapter5-bigpipe</module>
+
     </modules>
 
     <dependencies>

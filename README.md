@@ -47,6 +47,9 @@
 * 使用HttpServletRequest.upgrade和HttpUpgradeHandler实现HTTP/1.1协议升级，如升级到Websocket等等
 * 示例实现了一个直接与socket通信的回显和时间功能
 
+###5、pjax与bigpipe
+#####5.1、使用pjax(ajax + pushState) 无刷新ajax（并能记录ajax加载的历史记录）加载内容
+#####5.2、使用bigpipe并发加载页面片段，并使用springmvc抽象bigpipe，简化bigpipe开发，可以基于此完善的更易使用
 
 具体请参考源代码，欢迎一起探讨学习。有问题请回复。
 

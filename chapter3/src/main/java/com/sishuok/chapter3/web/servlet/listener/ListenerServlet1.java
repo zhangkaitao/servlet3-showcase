@@ -38,7 +38,6 @@ public class ListenerServlet1 extends HttpServlet {
             public void onTimeout(final AsyncEvent event) throws IOException {
                 System.out.println("=====async timeout");
                 asyncContext.complete(); //需要调用下complete 否则如jetty默认每2秒重新调度一次当前方法
-
             }
 
             @Override
