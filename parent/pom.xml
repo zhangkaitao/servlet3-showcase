@@ -35,7 +35,7 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
-            <version>9.0.4.v20130625</version>
+            <version>9.0.5.v20130815</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
@@ -100,7 +100,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
-        <jetty.maven.version>9.0.4.v20130625</jetty.maven.version>
+        <jetty.maven.version>9.0.5.v20130815</jetty.maven.version>
         <tomcat.maven.version>2.1</tomcat.maven.version>
     </properties>
 
